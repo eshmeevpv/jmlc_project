@@ -65,20 +65,3 @@ python -m pip install -e '.[interpretability,download]'
 `configs/experiment_2.yaml` represents the lower-learning-rate 60-epoch
 experiment. Dataset-derived feature order and train-only category cardinalities
 are recorded explicitly so that either file can construct `HDBCompNet`.
-
-## Confirmed notebook results
-
-The notebook reports experiment 2 test MAE of 13,674.62 SGD, RMSE of
-19,748.27 SGD, and price-scale R² of 0.987295. These are archived historical
-outputs, not results reproduced by this refactoring.
-
-## Limitations
-
-The initial nearest-neighbour search is deliberately non-differentiable and cache
-based. Retrieval memory must be rebuilt from train data for a new split. No full
-training, cache generation, or SHAP run is part of routine verification. The first
-package version has no comparable-price adjustment or post-gating residual model.
-
-## License
-
-MIT. See [LICENSE](LICENSE).
