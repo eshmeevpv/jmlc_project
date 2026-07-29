@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+venv/
+env/
+build/
+dist/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Testing and tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# IDE and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env
+.env.*
+!.env.example
+kaggle.json
+**/kaggle.json
+
+# Data
+data/raw/
+data/interim/
+data/processed/
+artifacts/
+cache/
+cache_download/
+*.npy
+*.npz
+*.parquet
+*.feather
+
+# Models and experiments
+checkpoints/
+experiments/
+mlruns/
+wandb/
+*.pt
+*.pth
+*.ckpt
