@@ -1,0 +1,112 @@
+numeric_columns:
+  - x
+  - y
+  - max_floor_lvl
+  - year_completed
+  - commercial
+  - market_hawker
+  - miscellaneous
+  - multistorey_carpark
+  - precinct_pavilion
+  - total_dwelling_units
+  - dist_mrt_exit_m
+  - mrt_station_count_1km
+  - walk_time_to_nearest_mrt_exit_min
+  - walk_distance_to_nearest_mrt_exit_m
+  - dist_to_raffles_place_m
+  - dist_nearest_primary_school_m
+  - primary_school_count_1km
+  - dist_nearest_secondary_school_m
+  - secondary_school_count_1km
+  - dist_nearest_park_m
+  - park_count_1km
+  - dist_nearest_hospital_m
+  - hospital_count_1km
+  - dist_nearest_hawker_centre_m
+  - hawker_centre_count_1km
+  - bank_hdb_max_tenure_years
+  - bank_hdb_msr
+  - hdb_housing_loan_max_tenure_years
+  - hdb_housing_msr
+  - ltv_first_std
+  - ltv_second_std
+  - ltv_third_plus_std
+  - ltv_non_individual_std
+  - ltv_first_long
+  - ltv_second_long
+  - ltv_third_plus_long
+  - ltv_any_existing_std
+  - ltv_any_existing_long
+  - cpf_oa_rate
+  - cpi_all_items
+  - sgs_2y_yield
+  - real_gdp_sa
+  - resident_population
+  - resident_unemployment_rate
+  - ulc_index_sa
+  - per_capita_gdp_real
+  - resident_households_hdb
+  - household_net_worth
+  - floor_mean
+  - floor_area_sqm
+  - lease_commence_date
+  - remaining_lease_full_years
+  - month_index
+  - month_sin
+  - month_cos
+  - hdb_ltv_effective
+categorical_columns:
+  - town
+  - flat_type
+  - flat_model
+  - nearest_hospital_type
+  - nearest_hospital_category
+category_cardinalities:
+  town: 27
+  flat_type: 8
+  flat_model: 22
+  nearest_hospital_type: 4
+  nearest_hospital_category: 4
+embedding_dimensions:
+  town: 6
+  flat_type: 3
+  flat_model: 5
+  nearest_hospital_type: 2
+  nearest_hospital_category: 2
+global_hidden_dim: 256
+global_embedding_dim: 128
+retrieval_hidden_dim: 128
+retrieval_embedding_dim: 64
+score_hidden_dim: 128
+gate_hidden_dim: 64
+reliability_feature_dim: 5
+dropout: 0.1
+k_search: 128
+k_candidates: 32
+retrieval_query_batch_size: 1024
+candidate_filter_batch_size: 8192
+huber_delta: 1.0
+auxiliary_loss_weight: 0.1
+learning_rate: 0.0003
+weight_decay: 0.00001
+batch_size: 512
+max_epochs: 30
+gradient_clip_norm: 1.0
+scheduler_factor: 0.5
+scheduler_patience: 2
+min_learning_rate: 0.000001
+early_stopping_patience: 5
+num_workers: 2
+pin_memory: true
+persistent_workers: true
+use_amp: true
+amp_dtype: float16
+seed: 42
+train_fraction: 0.7
+validation_fraction: 0.1
+test_fraction: 0.2
+stratify_column: sale_year
+log_transform: log
+dataset_slug: paveleshmeev/sgp-resale-prices-90
+dataset_filename: df_common_sample_complete_case.csv
+cache_dataset_slug: paveleshmeev/hdb-compnet-cache
