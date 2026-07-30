@@ -111,7 +111,7 @@ HDB-CompNet combines a global representation of an apartment with information fr
 
 The table below presents the results on the test sample. Lower MAE and RMSE values indicate better performance, while a higher $R^2$ indicates better performance.
 
-| Model | MAE, SGD ↓ | RMSE, SGD ↓ | $R^2$ ↑ |
+| Model | MAE, SGD | RMSE, SGD | $R^2$ |
 |---|---:|---:|---:|
 | OLS with HC3 | 36,100.51 | 49,281.84 | 0.9209 |
 | FGLS with HC3 | 34,832.87 | 46,842.08 | 0.9285 |
@@ -120,7 +120,7 @@ The table below presents the results on the test sample. Lower MAE and RMSE valu
 | Quantile regression, \(q=0.75\) | 43,082.32 | 57,272.23 | 0.8931 |
 | Random Forest | 14,090.81 | 20,725.31 | 0.9860 |
 | **CatBoost** | **13,608.41** | **19,511.56** | **0.9876** |
-| **HDB-CompNet** | **13,859.62** | **20,015.44** | **0.9869** |
+| **HDB-CompNet** | **13,674.62** | **19,748.27** | **0.9873** |
 
 CatBoost achieves the best overall predictive performance. At the same time, HDB-CompNet:
 
