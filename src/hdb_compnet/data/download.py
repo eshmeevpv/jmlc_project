@@ -64,7 +64,6 @@ def download_kaggle_cache_artifacts(
     dataset_slug: str = DEFAULT_CACHE_DATASET_SLUG,
     force: bool = False,
 ) -> Path:
-    """Download and unzip the notebook's external retrieval-cache dataset."""
     _validate_kaggle_credentials()
     destination_path = Path(destination)
     destination_path.mkdir(parents=True, exist_ok=True)
