@@ -1,4 +1,4 @@
-"""AMP-aware train/evaluate loops and notebook experiment orchestration."""
+"""AMP-aware train/evaluate loops and experiment orchestration."""
 
 from __future__ import annotations
 
