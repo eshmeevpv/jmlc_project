@@ -13,7 +13,7 @@ from hdb_compnet.config import CATEGORY_COLUMNS
 
 @dataclass(frozen=True, slots=True)
 class ModelSplitData:
-    """In-memory target features; candidate arrays remain path-based caches."""
+    """In-memory target features. Candidate arrays remain path-based caches."""
 
     numeric_features: np.ndarray
     categorical_features: np.ndarray
@@ -47,7 +47,7 @@ def build_model_split_data(
 
 
 class TransactionIndexDataset(Dataset[int]):
-    """Return only row positions; the collator performs candidate materialization."""
+    """Return only row positions. Collator performs candidate materialization."""
 
     def __init__(self, size: int):
         self.size = size
