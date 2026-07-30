@@ -1,4 +1,4 @@
-"""Train-only target and numeric preprocessing from the notebook."""
+"""Train-only target and numeric preprocessing"""
 
 from __future__ import annotations
 
@@ -44,7 +44,7 @@ EXCLUDED_NUMERIC_COLUMNS = {
 
 
 def add_month_features(dataframe: pd.DataFrame) -> pd.DataFrame:
-    """Add the exact month index and cyclic features used by the notebook."""
+    """Add the exact month index and cyclic features"""
     result = dataframe.copy()
     if not pd.api.types.is_datetime64_any_dtype(result['transaction_date']):
         result['transaction_date'] = pd.to_datetime(result['transaction_date'], errors='coerce')
@@ -58,7 +58,7 @@ def add_month_features(dataframe: pd.DataFrame) -> pd.DataFrame:
 
 
 def add_hdb_ltv_effective(dataframe: pd.DataFrame) -> pd.DataFrame:
-    """Select the flat-type-specific HDB LTV series and drop source columns."""
+    """Select the flat-type-specific HDB LTV series and drop source columns"""
     result = dataframe.copy()
     result['hdb_ltv_effective'] = np.select(
         [
@@ -95,13 +95,13 @@ def add_hdb_ltv_effective(dataframe: pd.DataFrame) -> pd.DataFrame:
 
 
 def prepare_feature_frame(dataframe: pd.DataFrame) -> pd.DataFrame:
-    """Apply deterministic, unfitted feature construction."""
+    """Apply deterministic, unfitted feature construction"""
     return add_hdb_ltv_effective(add_month_features(dataframe))
 
 
 @dataclass(frozen=True, slots=True)
 class NumericPreprocessingArtifacts:
-    """Fitted train-only transforms and feature order."""
+    """Fitted train-only transforms and feature order"""
 
     target_scaler: StandardScaler
     numeric_scaler: StandardScaler
@@ -139,7 +139,7 @@ class NumericPreprocessingArtifacts:
 
 @dataclass(frozen=True, slots=True)
 class PreparedNumericSplits:
-    """Prepared frames, reference values, matrices, and fitted artifacts."""
+    """Prepared frames, reference values, matrices, and fitted artifacts"""
 
     train_frame: pd.DataFrame
     validation_frame: pd.DataFrame
@@ -156,7 +156,7 @@ class PreparedNumericSplits:
 def fit_numeric_preprocessor(
     train_dataframe: pd.DataFrame,
 ) -> NumericPreprocessingArtifacts:
-    """Fit target, numeric, and isotropic coordinate scaling on train only."""
+    """Fit target, numeric, and isotropic coordinate scaling on train only"""
     target_scaler = StandardScaler().fit(train_dataframe[['log_resale_price']])
     standardized = tuple(
         column
@@ -197,7 +197,7 @@ def prepare_numeric_splits(
     validation: pd.DataFrame,
     test: pd.DataFrame,
 ) -> PreparedNumericSplits:
-    """Fit on train and transform all three fixed splits."""
+    """Fit on train and transform all three fixed splits"""
     train_frame = prepare_feature_frame(train)
     validation_frame = prepare_feature_frame(validation)
     test_frame = prepare_feature_frame(test)
