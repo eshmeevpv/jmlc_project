@@ -1,4 +1,4 @@
-"""Data preparation, retrieval memory, caches, datasets, and collation."""
+"""Data preparation, retrieval memory, caches, datasets, and collation"""
 
 from hdb_compnet.data.cache import (
     FinalCandidateCache,
