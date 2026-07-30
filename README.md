@@ -109,9 +109,9 @@ HDB-CompNet combines a global representation of an apartment with information fr
 
 ## Modelling results
 
-The table below presents the results on the test sample. Lower MAE and RMSE values indicate better performance, while a higher \(R^2\) indicates better performance.
+The table below presents the results on the test sample. Lower MAE and RMSE values indicate better performance, while a higher $R^2$ indicates better performance.
 
-| Model | MAE, SGD ↓ | RMSE, SGD ↓ | \(R^2\) ↑ |
+| Model | MAE, SGD ↓ | RMSE, SGD ↓ | $R^2$ ↑ |
 |---|---:|---:|---:|
 | OLS with HC3 | 36,100.51 | 49,281.84 | 0.9209 |
 | FGLS with HC3 | 34,832.87 | 46,842.08 | 0.9285 |
@@ -125,7 +125,7 @@ The table below presents the results on the test sample. Lower MAE and RMSE valu
 CatBoost achieves the best overall predictive performance. At the same time, HDB-CompNet:
 
 - substantially outperforms the econometric models considered;
-- outperforms Random Forest in terms of MAE, RMSE and \(R^2\);
+- outperforms Random Forest in terms of MAE, RMSE and $R^2$;
 - trails CatBoost by approximately 1.8% in MAE and 2.6% in RMSE;
 - provides additional interpretability through retrieved comparables, attention weights and branch-specific weights.
 
@@ -257,19 +257,19 @@ The scores of admissible comparables are converted into attention weights using 
 
 A retrieval branch prediction is formed as a weighted sum of the observed standardized logarithmic prices of the comparables:
 
-\[
+$$
 \widehat{y}^{(b)}
 =
 \sum_{j=1}^{K}
 \alpha_{j}^{(b)} y_j,
-\]
+$$
 
 where:
 
-- \(b\) denotes the structural, spatial or market branch;
-- \(K\) is the number of available candidates;
-- \(\alpha_j^{(b)}\) is the trainable attention weight;
-- \(y_j\) is the historical comparable’s price in the target-variable space.
+- $b$ denotes the structural, spatial or market branch;
+- $K$ is the number of available candidates;
+- $\alpha_j^{(b)}$ is the trainable attention weight;
+- $y_j$ is the historical comparable’s price in the target-variable space.
 
 In the current version, the model does not adjust the price of each comparable with a separate residual network: the retrieval branches aggregate the actually observed transaction prices.
 
@@ -296,7 +296,7 @@ The gating network receives:
 
 Masked softmax produces the following weights:
 
-\[
+$$
 g_{\mathrm{base}},
 \quad
 g_{\mathrm{structural}},
@@ -304,11 +304,11 @@ g_{\mathrm{structural}},
 g_{\mathrm{spatial}},
 \quad
 g_{\mathrm{market}}.
-\]
+$$
 
 The final prediction is:
 
-\[
+$$
 \widehat{y}
 =
 g_{\mathrm{base}}\widehat{y}_{\mathrm{base}}
@@ -318,7 +318,7 @@ g_{\mathrm{structural}}\widehat{y}_{\mathrm{structural}}
 g_{\mathrm{spatial}}\widehat{y}_{\mathrm{spatial}}
 +
 g_{\mathrm{market}}\widehat{y}_{\mathrm{market}}.
-\]
+$$
 
 Unavailable retrieval branches receive zero weight. The baseline branch remains available for every property.
 
@@ -330,13 +330,13 @@ The prediction is then transformed from the standardized logarithmic space back 
 
 The model is trained using the main Huber loss for the final prediction and auxiliary losses for the individual branches:
 
-\[
+$$
 L
 =
 L_{\mathrm{main}}
 +
 \lambda L_{\mathrm{aux}}.
-\]
+$$
 
 Auxiliary losses are applied only to available retrieval branches and help each branch produce a meaningful standalone prediction.
 
@@ -348,36 +348,7 @@ The training procedure uses:
 - `ReduceLROnPlateau`;
 - early stopping;
 - best-checkpoint selection based on validation main loss;
-- MAE, RMSE and \(R^2\) evaluation in standardized, logarithmic and original price scales.
-
----
-
-## HDB-CompNet interpretation
-
-The following tools are implemented for model analysis:
-
-### SHAP analysis
-
-- separate evaluation of numerical features;
-- separate evaluation of categorical features;
-- combined mean absolute SHAP importance.
-
-### Gating-network analysis
-
-- average weights of the four branches;
-- distribution of branch weights across properties;
-- weighted contribution of every branch to the final prediction.
-
-### Retrieval-branch analysis
-
-The relationship between branch weights and the following characteristics is examined:
-
-- number of available comparables;
-- average distance to comparables;
-- average transaction age;
-- concentration of attention weights.
-
-This structure makes it possible to analyse not only the final prediction error, but also the types of information the model relies on when valuing a particular property.
+- MAE, RMSE and $R^2$ evaluation in standardized, logarithmic and original price scales.
 
 ---
 
@@ -459,7 +430,7 @@ The second configuration produces the final result:
 ```text
 MAE  = 13,859.62 SGD
 RMSE = 20,015.44 SGD
-R²   = 0.9869
+$R^2$   = 0.9869
 ```
 
 ---
