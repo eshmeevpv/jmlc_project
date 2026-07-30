@@ -1,4 +1,4 @@
-"""Worker-safe lazy collation of path-based candidate caches."""
+"""Worker-safe lazy collation of path-based candidate caches"""
 
 from __future__ import annotations
 
@@ -17,7 +17,7 @@ from hdb_compnet.data.reference_memory import ReferenceMemory
 
 @dataclass(frozen=True, slots=True)
 class CandidateCacheArrays:
-    """Memory-mapped arrays opened lazily inside a DataLoader worker."""
+    """Memory-mapped arrays opened lazily inside a DataLoader worker"""
 
     indices: np.ndarray
     distances: np.ndarray
@@ -27,7 +27,7 @@ class CandidateCacheArrays:
 
 
 class HDBCompNetCollator:
-    """Materialize candidates for one split using from space to cache mapping."""
+    """Materialize candidates for one split using from space to cache mapping"""
 
     def __init__(
         self,
