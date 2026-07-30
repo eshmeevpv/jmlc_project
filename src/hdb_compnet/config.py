@@ -1,4 +1,4 @@
-"""Notebook-derived configuration for HDB-CompNet."""
+"""Configuration for HDB-CompNet."""
 
 from __future__ import annotations
 
@@ -123,7 +123,7 @@ def _immutable_index_mapping(
 
 @dataclass(frozen=True, slots=True)
 class HDBCompNetConfig:
-    """Complete model and training configuration used by the notebook."""
+    """Complete model and training configuration."""
 
     numeric_columns: tuple[str, ...]
     categorical_columns: tuple[str, ...]
@@ -233,7 +233,7 @@ class HDBCompNetConfig:
         return numeric_dim + categorical_dim
 
     def validate(self) -> None:
-        """Validate dimensions and notebook architecture invariants."""
+        """Validate dimensions and architecture invariants."""
         if self.branch_names != BRANCH_NAMES:
             raise ValueError(f'branch_names must be {BRANCH_NAMES!r}.')
         if self.retrieval_space_names != RETRIEVAL_SPACE_NAMES:
