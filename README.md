@@ -66,7 +66,7 @@ df_common_sample_complete_case.csv
 | [NEA Hawker Centres](https://data.gov.sg/datasets/d_4a086da0a5553be1d89383cd90d07ecd/view) | hawker centre locations |
 | [OneMap Singapore](https://www.onemap.gov.sg/) | address geocoding |
 | [Singapore Department of Statistics](https://www.singstat.gov.sg/) | macroeconomic indicators |
-| Monetary Authority of Singapore and HDB | mortgage restrictions and lending parameters |
+| [Monetary Authority of Singapore and HDB](https://www.mas.gov.sg/) | mortgage restrictions and lending parameters |
 
 Data and large derived artifacts are not stored in Git:
 
