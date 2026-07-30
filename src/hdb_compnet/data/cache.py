@@ -1,4 +1,4 @@
-"""One stable path-based interface for built and restored retrieval caches."""
+"""Path-based interface for built and restored retrieval caches."""
 
 from __future__ import annotations
 
