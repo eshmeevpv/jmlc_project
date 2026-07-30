@@ -1,4 +1,4 @@
-"""Notebook training-history and final comparison plots."""
+"""Training-history and final comparison plots."""
 
 from __future__ import annotations
 
@@ -106,7 +106,7 @@ def plot_branch_availability(
 def plot_validation_metrics(
     training_history: HDBCompNetTrainingHistory | Mapping[str, object],
 ) -> None:
-    """Plot validation price MAE, RMSE, and R²."""
+    """Plot validation price MAE, RMSE, and R2."""
     history = get_training_history_data(training_history)
     metrics = history['validation']['metrics']
     plot_history_series(
@@ -117,9 +117,9 @@ def plot_validation_metrics(
     )
     plot_history_series(
         history['epoch'],
-        {'R²': metrics['price_r2']},
-        'Validation price R²',
-        'R²',
+        {'R2': metrics['price_r2']},
+        'Validation price R2',
+        'R2',
     )
 
 
@@ -166,7 +166,7 @@ def plot_validation_test_metric_comparison(
     test_metrics: Mapping[str, float],
 ) -> None:
     """Compare final validation and test price metrics."""
-    labels = ('MAE, SGD', 'RMSE, SGD', 'R²')
+    labels = ('MAE, SGD', 'RMSE, SGD', 'R2')
     validation = (
         validation_metrics['price_mae_sgd'],
         validation_metrics['price_rmse_sgd'],
