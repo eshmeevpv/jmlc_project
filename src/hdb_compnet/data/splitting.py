@@ -1,4 +1,4 @@
-"""Fixed notebook train/validation/test split."""
+"""Train/validation/test split"""
 
 from __future__ import annotations
 
@@ -11,7 +11,7 @@ def split_hdb_transactions(
     *,
     random_state: int = 42,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    """Return the notebook's 70/10/20 split, stratified by sale year."""
+    """Return 70/10/20 split, stratified by sale year"""
     data = dataframe.copy()
     if not pd.api.types.is_datetime64_any_dtype(data['transaction_date']):
         data['transaction_date'] = pd.to_datetime(data['transaction_date'], errors='coerce')
