@@ -1,4 +1,4 @@
-"""Train-only category indices and retrieval one-hot encoders."""
+"""Train-only category indices and retrieval one-hot encoders"""
 
 from __future__ import annotations
 
@@ -16,7 +16,7 @@ from hdb_compnet.config import CATEGORY_COLUMNS, RETRIEVAL_SPACES
 
 @dataclass(frozen=True, slots=True)
 class CategoricalArtifacts:
-    """Train-fitted mappings for embeddings and retrieval encoders."""
+    """Train-fitted mappings for embeddings and retrieval encoders"""
 
     category_mappings: Mapping[str, Mapping[object, int]]
     category_cardinalities: Mapping[str, int]
@@ -48,7 +48,7 @@ class CategoricalArtifacts:
 
 
 def fit_categorical_artifacts(train: pd.DataFrame) -> CategoricalArtifacts:
-    """Fit category mechanisms using train only."""
+    """Fit category mechanisms using train only"""
     mappings = {
         column: MappingProxyType(
             {
