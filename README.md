@@ -329,7 +329,13 @@ The prediction is then transformed from the standardized logarithmic space back 
 
 The model is trained using the main Huber loss for the final prediction and auxiliary losses for the individual branches:
 
-$L = L_{\mathrm{main}} + \lambda L_{\mathrm{aux}}$.
+```math
+L
+=
+L_{\mathrm{main}}
++
+\lambda L_{\mathrm{aux}}.
+```
 
 Auxiliary losses are applied only to available retrieval branches and help each branch produce a meaningful standalone prediction.
 
