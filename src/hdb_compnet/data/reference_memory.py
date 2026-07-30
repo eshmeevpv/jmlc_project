@@ -1,4 +1,4 @@
-"""Immutable train-only reference memory."""
+"""Immutable train-only reference memory"""
 
 from __future__ import annotations
 
@@ -15,7 +15,7 @@ from hdb_compnet.config import CATEGORY_COLUMNS
 
 @dataclass(frozen=True, slots=True)
 class ReferenceMemory:
-    """Arrays indexed by train-memory positions, never DataFrame indices."""
+    """Arrays indexed by train-memory positions, never DataFrame indices"""
 
     resale_ids: np.ndarray
     month_indices: np.ndarray
