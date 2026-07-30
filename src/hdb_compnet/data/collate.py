@@ -27,7 +27,7 @@ class CandidateCacheArrays:
 
 
 class HDBCompNetCollator:
-    """Materialize candidates for one split using ``space -> cache`` mapping."""
+    """Materialize candidates for one split using from space to cache mapping."""
 
     def __init__(
         self,
@@ -122,7 +122,6 @@ def create_hdb_compnet_dataloaders(
     reference_memory: ReferenceMemory,
     final_candidate_caches: Mapping[str, Mapping[str, FinalCandidateCache]],
 ) -> tuple[DataLoader, DataLoader, DataLoader]:
-    """Create the three notebook loaders without relying on globals."""
     generator = torch.Generator()
     generator.manual_seed(config.seed)
     common: dict[str, object] = {
