@@ -256,8 +256,12 @@ A trainable recency penalty is then applied: an older comparable may receive a l
 The scores of admissible comparables are converted into attention weights using masked softmax.
 
 A retrieval branch prediction is formed as a weighted sum of the observed standardized logarithmic prices of the comparables:
-
-$\widehat{y}^{(b)} = \sum_{j=1}^{K} \alpha_{j}^{(b)}y_j$,
+```math
+\widehat{y}^{(b)}
+=
+\sum_{j=1}^{K}
+\alpha_{j}^{(b)}\,y_j,
+```
 
 where:
 
