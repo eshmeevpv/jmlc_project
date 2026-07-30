@@ -21,7 +21,7 @@ def inverse_transform_target(
     target_scaler: object,
     log_transform: Literal['log', 'log1p'] = 'log',
 ) -> tuple[np.ndarray, np.ndarray]:
-    """Undo standardization and the notebook-selected logarithm."""
+    """Undo standardization and logarithm."""
     values_scaled = to_numpy_1d(values_scaled)
     values_log = target_scaler.inverse_transform(values_scaled.reshape(-1, 1)).reshape(-1)
     if log_transform == 'log':
