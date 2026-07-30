@@ -48,7 +48,7 @@ class CategoricalArtifacts:
 
 
 def fit_categorical_artifacts(train: pd.DataFrame) -> CategoricalArtifacts:
-    """Fit both notebook category mechanisms using train only."""
+    """Fit category mechanisms using train only."""
     mappings = {
         column: MappingProxyType(
             {
