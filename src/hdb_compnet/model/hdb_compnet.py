@@ -16,7 +16,7 @@ from hdb_compnet.model.retrieval import RetrievalBranch
 
 
 class HDBCompNet(nn.Module):
-    """Notebook-equivalent baseline plus three retrieval branches and gating."""
+    """Baseline with three retrieval branches and gating."""
 
     def __init__(self, config: HDBCompNetConfig):
         super().__init__()
