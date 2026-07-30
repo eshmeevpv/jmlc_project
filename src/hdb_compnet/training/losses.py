@@ -1,4 +1,4 @@
-"""Notebook Huber objective with masked auxiliary branch losses."""
+"""Huber objective with masked auxiliary branch losses."""
 
 from __future__ import annotations
 
