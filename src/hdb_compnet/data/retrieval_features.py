@@ -1,4 +1,4 @@
-"""Construction of the notebook's three retrieval feature spaces."""
+"""Construction of three retrieval feature spaces"""
 
 from __future__ import annotations
 
@@ -24,7 +24,7 @@ def build_retrieval_matrices(
     numeric_features: pd.DataFrame,
     categorical_features: Mapping[str, csr_matrix],
 ) -> dict[str, np.ndarray | csr_matrix]:
-    """Build structural/spatial CSR matrices and the dense market matrix."""
+    """Build structural/spatial CSR matrices and the dense market matrix"""
     retrieval_matrices: dict[str, np.ndarray | csr_matrix] = {}
     for space_name, space_config in RETRIEVAL_SPACES.items():
         numeric_matrix = numeric_features[list(space_config['numeric'])].to_numpy(
