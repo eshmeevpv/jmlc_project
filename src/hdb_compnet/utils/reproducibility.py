@@ -9,7 +9,7 @@ import torch
 
 
 def set_experiment_seed(seed: int, *, deterministic: bool = True) -> None:
-    """Seed Python, NumPy, and PyTorch; optionally match notebook CuDNN flags."""
+    """Seed Python, NumPy, and PyTorch; optionally match CuDNN flags."""
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
