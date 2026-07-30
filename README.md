@@ -257,12 +257,7 @@ The scores of admissible comparables are converted into attention weights using 
 
 A retrieval branch prediction is formed as a weighted sum of the observed standardized logarithmic prices of the comparables:
 
-$$
-\widehat{y}^{(b)}
-=
-\sum_{j=1}^{K}
-\alpha_{j}^{(b)} y_j,
-$$
+$ \widehat{y}^{(b)} = \sum_{j=1}^{K} \alpha_{j}^{(b)} y_j$,
 
 where:
 
@@ -308,17 +303,7 @@ $$
 
 The final prediction is:
 
-$$
-\widehat{y}
-=
-g_{\mathrm{base}}\widehat{y}_{\mathrm{base}}
-+
-g_{\mathrm{structural}}\widehat{y}_{\mathrm{structural}}
-+
-g_{\mathrm{spatial}}\widehat{y}_{\mathrm{spatial}}
-+
-g_{\mathrm{market}}\widehat{y}_{\mathrm{market}}.
-$$
+$\widehat{y} = g_{\mathrm{base}}\widehat{y}_{\mathrm{base}} + g_{\mathrm{structural}}\widehat{y}_{\mathrm{structural}} + g_{\mathrm{spatial}}\widehat{y}_{\mathrm{spatial}} + g_{\mathrm{market}}\widehat{y}_{\mathrm{market}}$.
 
 Unavailable retrieval branches receive zero weight. The baseline branch remains available for every property.
 
@@ -330,13 +315,7 @@ The prediction is then transformed from the standardized logarithmic space back 
 
 The model is trained using the main Huber loss for the final prediction and auxiliary losses for the individual branches:
 
-$$
-L
-=
-L_{\mathrm{main}}
-+
-\lambda L_{\mathrm{aux}}.
-$$
+$L = L_{\mathrm{main}} + \lambda L_{\mathrm{aux}}$.
 
 Auxiliary losses are applied only to available retrieval branches and help each branch produce a meaningful standalone prediction.
 
@@ -428,9 +407,9 @@ The improved configuration:
 The second configuration produces the final result:
 
 ```text
-MAE  = 13,859.62 SGD
+MAE = 13,859.62 SGD
 RMSE = 20,015.44 SGD
-$R^2$   = 0.9869
+R2 = 0.9869
 ```
 
 ---
