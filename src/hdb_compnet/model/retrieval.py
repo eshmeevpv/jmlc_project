@@ -14,7 +14,7 @@ from hdb_compnet.model.encoders import RetrievalRepresentationEncoders
 
 
 class PairFeatureBuilder(nn.Module):
-    """Build the notebook's five representation interactions plus distance."""
+    """Build five representation interactions plus distance."""
 
     def forward(
         self,
