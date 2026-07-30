@@ -1,4 +1,4 @@
-"""Path-based interface for built and restored retrieval caches."""
+"""Path-based interface for built and restored retrieval caches"""
 
 from __future__ import annotations
 
@@ -15,7 +15,7 @@ SPACE_NAMES = ('structural', 'spatial', 'market')
 
 @dataclass(frozen=True, slots=True)
 class InitialNeighborCache:
-    """Paths for the unfiltered nearest-neighbour search output."""
+    """Paths for the unfiltered nearest-neighbour search output"""
 
     indices_path: Path
     distances_path: Path
@@ -30,7 +30,7 @@ class InitialNeighborCache:
 
 @dataclass(frozen=True, slots=True)
 class FinalCandidateCache:
-    """Paths for filtered, padded candidates consumed by a collator."""
+    """Paths for filtered, padded candidates consumed by a collator"""
 
     indices_path: Path
     distances_path: Path
@@ -61,7 +61,7 @@ def restore_initial_neighbor_caches(
     split_names: tuple[str, ...] = SPLIT_NAMES,
     space_names: tuple[str, ...] = SPACE_NAMES,
 ) -> Mapping[str, Mapping[str, InitialNeighborCache]]:
-    """Restore the same types returned by initial-cache construction."""
+    """Restore the same types returned by initial-cache construction"""
     root = Path(cache_dir)
     restored = {
         split_name: MappingProxyType(
@@ -84,7 +84,7 @@ def restore_final_candidate_caches(
     split_names: tuple[str, ...] = SPLIT_NAMES,
     space_names: tuple[str, ...] = SPACE_NAMES,
 ) -> Mapping[str, Mapping[str, FinalCandidateCache]]:
-    """Restore the same types returned by final-cache construction."""
+    """Restore the same types returned by final-cache construction"""
     root = Path(cache_dir)
     restored = {
         split_name: MappingProxyType(
