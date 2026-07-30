@@ -1,4 +1,4 @@
-"""Grouped nearest-neighbour search and notebook-equivalent filtering."""
+"""Grouped nearest-neighbour search and filtering."""
 
 from __future__ import annotations
 
@@ -66,7 +66,7 @@ def build_initial_neighbor_caches(
     k_search: int = 128,
     batch_size: int = 1024,
 ) -> Mapping[str, Mapping[str, InitialNeighborCache]]:
-    """Search before temporal filtering, preserving the notebook's two-stage design."""
+    """Search before temporal filtering."""
     root = Path(cache_dir)
     root.mkdir(parents=True, exist_ok=True)
     result: dict[str, Mapping[str, InitialNeighborCache]] = {}
