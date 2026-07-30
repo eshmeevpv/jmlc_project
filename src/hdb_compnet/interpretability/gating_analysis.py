@@ -62,7 +62,7 @@ def calculate_binned_relationship(
     y: pd.Series,
     n_bins: int,
 ) -> pd.DataFrame:
-    """Calculate notebook quantile-bin means without implying causality."""
+    """Calculate quantile-bin means without implying causality."""
     unique_count = x.nunique()
     if unique_count < 2:
         return pd.DataFrame(columns=['x_mean', 'y_mean'])
