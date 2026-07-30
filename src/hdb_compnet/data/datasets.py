@@ -1,4 +1,4 @@
-"""Lightweight model split containers and index-only datasets."""
+"""Lightweight model split containers and index-only datasets"""
 
 from __future__ import annotations
 
@@ -13,7 +13,7 @@ from hdb_compnet.config import CATEGORY_COLUMNS
 
 @dataclass(frozen=True, slots=True)
 class ModelSplitData:
-    """In-memory target features. Candidate arrays remain path-based caches."""
+    """In-memory target features, candidate arrays remain path-based caches"""
 
     numeric_features: np.ndarray
     categorical_features: np.ndarray
@@ -30,7 +30,7 @@ def build_model_split_data(
     categorical_features: pd.DataFrame,
     reference: pd.DataFrame,
 ) -> ModelSplitData:
-    """Build the compact arrays required by a split's collator."""
+    """Build the compact arrays required by a split's collator"""
     return ModelSplitData(
         numeric_features=np.ascontiguousarray(
             numeric_features.to_numpy(dtype=np.float32, copy=False)
@@ -47,7 +47,7 @@ def build_model_split_data(
 
 
 class TransactionIndexDataset(Dataset[int]):
-    """Return only row positions. Collator performs candidate materialization."""
+    """Return only row positions, collator performs candidate materialization"""
 
     def __init__(self, size: int):
         self.size = size
