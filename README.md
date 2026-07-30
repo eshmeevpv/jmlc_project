@@ -257,7 +257,7 @@ The scores of admissible comparables are converted into attention weights using 
 
 A retrieval branch prediction is formed as a weighted sum of the observed standardized logarithmic prices of the comparables:
 
-$\widehat{y}^{(b)} = \sum_{j=1}^{K} \alpha_{j}^{(b)} y_j$,
+$\widehat{y}^{(b)} = \sum_{j=1}^{K} \alpha_{j}^{(b)}y_j$,
 
 where:
 
@@ -301,7 +301,10 @@ g_{\mathrm{spatial}},
 g_{\mathrm{market}}.
 $$
 
-The final prediction is $`\widehat{y}
+The final prediction is:
+
+```math
+\widehat{y}
 =
 g_{\mathrm{base}}\widehat{y}_{\mathrm{base}}
 +
@@ -309,7 +312,8 @@ g_{\mathrm{structural}}\widehat{y}_{\mathrm{structural}}
 +
 g_{\mathrm{spatial}}\widehat{y}_{\mathrm{spatial}}
 +
-g_{\mathrm{market}}\widehat{y}_{\mathrm{market}}`$.
+g_{\mathrm{market}}\widehat{y}_{\mathrm{market}}.
+```
 
 Unavailable retrieval branches receive zero weight. The baseline branch remains available for every property.
 
