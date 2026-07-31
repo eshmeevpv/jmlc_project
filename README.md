@@ -427,9 +427,9 @@ The improved configuration:
 The second configuration produces the final result:
 
 ```text
-MAE = 13,859.62 SGD
-RMSE = 20,015.44 SGD
-R2 = 0.9869
+MAE = 13,674.62 SGD
+RMSE = 19,748.27 SGD
+R2 = 0.9873
 ```
 
 ---
